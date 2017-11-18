@@ -1,0 +1,40 @@
+---
+
+- name: cisco nxos provisioning
+  hosts: n9k 
+  connection: local
+  gather_facts: no
+
+  vars:
+    nxapi:
+      username: admin
+      password: #cisco123
+      transport: nxapi
+      http: no
+      https: yes
+      use_ssl: no
+      validate_certs: no
+
+  tasks:
+
+  - name: configure ACL
+    nxos_acl:
+      name: ansible
+      seq: 10
+      action: permit
+      proto: tcp
+      src: 1.1.1.1/24
+      dest: any
+      state: present
+      provider: "{{ nxos_nxapi_connection }}"
+
+  - name: run show ip access-list ansible
+    nxos_command:
+      commands: show ip access-list ansible 
+      provider: "{{ nxos_cli_connection }}"
+
+  - name: save running-config to startup-config
+    nxos_command:
+      commands: copy running-config startup-config
+      provider: "{{ nxos_cli_connection }}"
+
