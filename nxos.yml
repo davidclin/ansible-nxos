@@ -5,16 +5,6 @@
   connection: local
   gather_facts: no
 
-  vars:
-    nxapi:
-      username: admin
-      password: #cisco123
-      transport: nxapi
-      http: no
-      https: yes
-      use_ssl: no
-      validate_certs: no
-
   tasks:
 
   - name: configure ACL
