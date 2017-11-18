@@ -5,6 +5,7 @@ These playbooks utilize an nxapi and cli provider for authentication.
 
 Example providers used for these playbooks are:
 
+<pre>
 # /etc/ansible/group_vars/all.yaml
 nxos_nxapi_connection:
   host: "{{ inventory_hostname }}"
@@ -32,3 +33,4 @@ group_vars/
 10.1.1.1
 10.1.1.2
 etc
+</pre>
