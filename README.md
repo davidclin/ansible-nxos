@@ -18,16 +18,20 @@ nxos_nxapi_connection:
 nxos_cli_connection:
   host: "{{ inventory_hostname }}"
   username: admin
-  password: "#cisco123"
-  transport: cli
-  
+</pre>  
+
+Directory structure
+<pre>
 # tree structure starting from /etc/ansible
 nxos.yml
 nxos_clean.yml
 hosts 
 group_vars/
 └── all.yml
+</pre>
 
+Sample hosts file
+<pre>
 # sample hosts file
 [n9k]
 10.1.1.1
